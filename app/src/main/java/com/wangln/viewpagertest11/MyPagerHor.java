@@ -42,6 +42,11 @@ public class MyPagerHor extends ViewPager {
     }
 
     @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent ev) {
         Log.d("wang","parent " + ev.getAction());
         return super.onTouchEvent(ev);

@@ -27,13 +27,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         initData();
         viewPager = (MyPagerHor) findViewById(R.id.vp1);
-        viewPager.setAdapter(adapter1);
+
         viewPager.setOffscreenPageLimit(5);
+//        viewPager.setPageMargin(8);
+        // Disable clip to padding
+        viewPager.setClipToPadding(false);
+// set padding manually, the more you set the padding the more you see of prev & next page
+        viewPager.setPadding(80, 0, 80, 0);
+// sets a margin b/w individual pages to ensure that there is a gap b/w them
+        viewPager.setPageMargin(10);
+//        ViewGroup.LayoutParams layoutParams = mViewPager.getLayoutParams();
+//        layoutParams.width = 568;
+//        viewPager.setLayoutParams(layoutParams);
+        viewPager.setAdapter(adapter1);
+        viewPager.setCurrentItem(1);
     }
     PagerAdapter adapter1 = new PagerAdapter()
     {
